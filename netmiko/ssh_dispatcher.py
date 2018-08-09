@@ -57,7 +57,7 @@ from netmiko.terminal_server import TerminalServerSSH
 from netmiko.terminal_server import TerminalServerTelnet
 from netmiko.ubiquiti import UbiquitiEdgeSSH
 from netmiko.vyos import VyOSSSH
-
+from netmiko.dlink import DlinkTelnet
 
 # The keys of this dictionary are the supported device_types
 CLASS_MAPPER_BASE = {
@@ -161,6 +161,7 @@ CLASS_MAPPER['calix_b6_telnet'] = CalixB6Telnet
 CLASS_MAPPER['dell_powerconnect_telnet'] = DellPowerConnectTelnet
 CLASS_MAPPER['generic_termserver_telnet'] = TerminalServerTelnet
 CLASS_MAPPER['extreme_telnet'] = ExtremeTelnet
+CLASS_MAPPER['dlink_telnet'] = DlinkTelnet
 CLASS_MAPPER['ruckus_fastiron_telnet'] = RuckusFastironTelnet
 
 # Add serial drivers

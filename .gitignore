@@ -1,3 +1,4 @@
+.idea/
 *.pyc
 *.swp
 tests/old_format/DEVICE_CREDS.py
