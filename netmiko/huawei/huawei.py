@@ -6,7 +6,7 @@ from netmiko.cisco_base_connection import CiscoSSHConnection
 from netmiko import log
 
 
-class HuaweBase(CiscoSSHConnection):
+class HuaweiBase(CiscoSSHConnection):
 
     def session_preparation(self):
         """Prepare the session after the connection has been established."""
@@ -19,15 +19,15 @@ class HuaweBase(CiscoSSHConnection):
 
     def config_mode(self, config_command='system-view'):
         """Enter configuration mode."""
-        return super(HuaweiSSH, self).config_mode(config_command=config_command)
+        return super(HuaweiBase, self).config_mode(config_command=config_command)
 
     def exit_config_mode(self, exit_config='return'):
         """Exit configuration mode."""
-        return super(HuaweiSSH, self).exit_config_mode(exit_config=exit_config)
+        return super(HuaweiBase, self).exit_config_mode(exit_config=exit_config)
 
     def check_config_mode(self, check_string=']'):
         """Checks whether in configuration mode. Returns a boolean."""
-        return super(HuaweiSSH, self).check_config_mode(check_string=check_string)
+        return super(HuaweiBase, self).check_config_mode(check_string=check_string)
 
     def check_enable_mode(self, *args, **kwargs):
         """Huawei has no enable mode."""
@@ -83,10 +83,10 @@ class HuaweBase(CiscoSSHConnection):
 
     def save_config(self, cmd='save', confirm=False, confirm_response=''):
         """ Save Config for HuaweiSSH"""
-        return super(HuaweiSSH, self).save_config(cmd=cmd, confirm=confirm)
+        return super(HuaweiBase, self).save_config(cmd=cmd, confirm=confirm)
 
 
-class HuaweiVrpv8SSH(HuaweiSSH):
+class HuaweiVrpv8SSH(HuaweiBase):
 
     def commit(self, comment='', delay_factor=1):
         """
@@ -121,8 +121,8 @@ class HuaweiVrpv8SSH(HuaweiSSH):
         """Not Implemented"""
         raise NotImplementedError
 
-class HuaweiTelnet(HuaweBase):
+class HuaweiTelnet(HuaweiBase):
     pass
 
-class HuaweiSSH(HuaweBase):
+class HuaweiSSH(HuaweiBase):
     pass
