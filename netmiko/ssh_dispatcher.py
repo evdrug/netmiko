@@ -39,7 +39,7 @@ from netmiko.extreme import ExtremeTelnet
 from netmiko.f5 import F5LtmSSH
 from netmiko.fortinet import FortinetSSH
 from netmiko.hp import HPProcurveSSH, HPProcurveTelnet, HPComwareSSH, HPComwareTelnet
-from netmiko.huawei import HuaweiSSH, HuaweiVrpv8SSH
+from netmiko.huawei import HuaweiSSH, HuaweiVrpv8SSH, HuaweiTelnet
 from netmiko.juniper import JuniperSSH, JuniperTelnet
 from netmiko.juniper import JuniperFileTransfer
 from netmiko.linux import LinuxSSH, LinuxFileTransfer
@@ -162,6 +162,7 @@ CLASS_MAPPER['dell_powerconnect_telnet'] = DellPowerConnectTelnet
 CLASS_MAPPER['generic_termserver_telnet'] = TerminalServerTelnet
 CLASS_MAPPER['extreme_telnet'] = ExtremeTelnet
 CLASS_MAPPER['dlink_telnet'] = DlinkTelnet
+CLASS_MAPPER['huawei_telnet'] = HuaweiTelnet
 CLASS_MAPPER['ruckus_fastiron_telnet'] = RuckusFastironTelnet
 
 # Add serial drivers

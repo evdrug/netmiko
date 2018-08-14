@@ -6,7 +6,7 @@ from netmiko.cisco_base_connection import CiscoSSHConnection
 from netmiko import log
 
 
-class HuaweiSSH(CiscoSSHConnection):
+class HuaweBase(CiscoSSHConnection):
 
     def session_preparation(self):
         """Prepare the session after the connection has been established."""
@@ -120,3 +120,9 @@ class HuaweiVrpv8SSH(HuaweiSSH):
     def save_config(self, cmd='', confirm=True, confirm_response=''):
         """Not Implemented"""
         raise NotImplementedError
+
+class HuaweiTelnet(HuaweBase):
+    pass
+
+class HuaweiSSH(HuaweBase):
+    pass
