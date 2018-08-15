@@ -27,6 +27,8 @@ from netmiko.py23_compat import string_types, bufferedio_types
 from netmiko.ssh_exception import NetMikoTimeoutException, NetMikoAuthenticationException
 from netmiko.utilities import write_bytes, check_serial_port, get_structured_data
 
+def bulk(self, cmd, opt):
+    pass
 
 class BaseConnection(object):
     """
@@ -725,6 +727,7 @@ class BaseConnection(object):
         """
         if self.protocol == 'telnet':
             self.remote_conn = telnetlib.Telnet(self.host, port=self.port, timeout=self.timeout)
+            self.remote_conn.set_option_negotiation_callback(bulk)
             self.telnet_login()
         elif self.protocol == 'serial':
             self.remote_conn = serial.Serial(**self.serial_settings)
